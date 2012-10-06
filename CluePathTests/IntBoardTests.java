@@ -14,17 +14,11 @@ import CluePath.IntBoard;
 public class IntBoardTests {
 	IntBoard board;
 	
-	
-	//@Before					//removed
+	@Before
 	public void initBoard() {
-		//board = new IntBoard();  //removed  
-	}
-	
-	@Before						//added this section
-	public void setUp() {
 		board = new IntBoard();
+		board.calcAdjacencies();
 	}
-	
 	
 	//*calcIndex Tests********************************************************
 	@Test
@@ -39,19 +33,19 @@ public class IntBoardTests {
 	
 	@Test
 	public void testCalcIndex_11(){
-		//IntBoard board = new IntBoard();		//removed, not needed here
+		IntBoard board = new IntBoard();
 		int row = 2;
 		int column = 3;
 		int expected = 11;
 		
-		int actual = board.calcIndex(row, column); 
+		int actual = board.calcIndex(row, column);
 		Assert.assertEquals(expected, actual);		
 	}
 	
 	//*Adjacency Tests********************************************************
 	@Test
 	public void testAdjacency0() {
-		LinkedList<Integer>  testList = board.getAdjList(0);   //LinkedList testList = board.getAdjList(0);
+		LinkedList testList = board.getAdjList(0);
 		Assert.assertTrue(testList.contains(4));
 		Assert.assertTrue(testList.contains(1));
 		Assert.assertEquals(2, testList.size());
@@ -59,7 +53,7 @@ public class IntBoardTests {
 	
 	@Test
 	public void testAdjacency15() {
-		LinkedList<Integer> testList = board.getAdjList(15);
+		LinkedList testList = board.getAdjList(15);
 		Assert.assertTrue(testList.contains(11));
 		Assert.assertTrue(testList.contains(14));
 		Assert.assertEquals(2, testList.size());
@@ -67,7 +61,7 @@ public class IntBoardTests {
 
 	@Test
 	public void testAdjacency7() {
-		LinkedList<Integer> testList = board.getAdjList(7);
+		LinkedList testList = board.getAdjList(7);
 		Assert.assertTrue(testList.contains(11));
 		Assert.assertTrue(testList.contains(3));
 		Assert.assertTrue(testList.contains(6));
@@ -76,7 +70,7 @@ public class IntBoardTests {
 	
 	@Test
 	public void testAdjacency8() {
-		LinkedList<Integer> testList = board.getAdjList(8);
+		LinkedList testList = board.getAdjList(8);
 		Assert.assertTrue(testList.contains(12));
 		Assert.assertTrue(testList.contains(9));
 		Assert.assertTrue(testList.contains(4));
@@ -85,7 +79,7 @@ public class IntBoardTests {
 	
 	@Test
 	public void testAdjacency5() {
-		LinkedList<Integer> testList = board.getAdjList(5);
+		LinkedList testList = board.getAdjList(5);
 		Assert.assertTrue(testList.contains(4));
 		Assert.assertTrue(testList.contains(9));
 		Assert.assertTrue(testList.contains(6));
@@ -94,7 +88,7 @@ public class IntBoardTests {
 	}
 	
 	public void testAdjacency10() {
-		LinkedList<Integer> testList = board.getAdjList(10);
+		LinkedList testList = board.getAdjList(10);
 		Assert.assertTrue(testList.contains(14));
 		Assert.assertTrue(testList.contains(11));
 		Assert.assertTrue(testList.contains(6));
@@ -185,3 +179,4 @@ public class IntBoardTests {
 		Assert.assertTrue(targets.contains(15));
 	}
 }
+
