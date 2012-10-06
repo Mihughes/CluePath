@@ -47,6 +47,7 @@ public class IntBoard {
 		
 	}
 	
+	
 	//Gets the list of targets in the form of a TreeSet
 	public TreeSet<Integer> getTargets() {
 		TreeSet<Integer> targets = new TreeSet<Integer>();

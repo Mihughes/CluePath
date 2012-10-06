@@ -25,6 +25,7 @@ public class IntBoardTests {
 		int row = 1;
 		int column = 1;
 		int expected = 5;
+	
 		
 		int actual = board.calcIndex(row, column);
 		Assert.assertEquals(expected, actual);		
