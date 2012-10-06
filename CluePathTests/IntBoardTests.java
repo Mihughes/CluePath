@@ -14,10 +14,17 @@ import CluePath.IntBoard;
 public class IntBoardTests {
 	IntBoard board;
 	
-	@Before
+	
+	//@Before					//removed
 	public void initBoard() {
 		board = new IntBoard();
 	}
+	
+	@Before						//added this section
+	public void setUp() {
+		
+	}
+	
 	
 	//*calcIndex Tests********************************************************
 	@Test
@@ -25,7 +32,6 @@ public class IntBoardTests {
 		int row = 1;
 		int column = 1;
 		int expected = 5;
-	
 		
 		int actual = board.calcIndex(row, column);
 		Assert.assertEquals(expected, actual);		
@@ -33,7 +39,7 @@ public class IntBoardTests {
 	
 	@Test
 	public void testCalcIndex_11(){
-		IntBoard board = new IntBoard();
+		//IntBoard board = new IntBoard();		//removed, not needed
 		int row = 2;
 		int column = 3;
 		int expected = 11;
@@ -45,7 +51,7 @@ public class IntBoardTests {
 	//*Adjacency Tests********************************************************
 	@Test
 	public void testAdjacency0() {
-		LinkedList testList = board.getAdjList(0);
+		LinkedList testList = board.getAdjList(0);   //LinkedList testList = board.getAdjList(0);
 		Assert.assertTrue(testList.contains(4));
 		Assert.assertTrue(testList.contains(1));
 		Assert.assertEquals(2, testList.size());

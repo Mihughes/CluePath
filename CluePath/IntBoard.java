@@ -18,6 +18,7 @@ public class IntBoard {
 	public IntBoard() {
 		super();
 		board = new IntBoard();
+		//calcAdjacencies();
 	}
 	
 	//Calculates the adjacency lists for each grid space.
@@ -54,7 +55,8 @@ public class IntBoard {
 		return targets;
 	}
 	
-	public LinkedList<Integer> getAdjList(int index) {
+	
+	public LinkedList<Integer> getAdjList(int index) { 
 		LinkedList<Integer> adjacencyList = new LinkedList<Integer>();
 		return adjacencyList;
 	}
@@ -62,6 +64,11 @@ public class IntBoard {
 	//Calculates the grid index based on the row and column.
 	public static int calcIndex(int row, int column) {
 		int gridIndex = row*4 + column;
-		return gridIndex;
+		return gridIndex;//return 5;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("clue path");
+
 	}
 }
