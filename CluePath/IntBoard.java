@@ -17,8 +17,8 @@ public class IntBoard {
 	
 	public IntBoard() {
 		super();
-		board = new IntBoard();
-		//calcAdjacencies();
+		//board = new IntBoard();  //tests don't work with this line here. Maybe move it to main()?
+		//calcAdjacencies();     		// error on line 37   
 	}
 	
 	//Calculates the adjacency lists for each grid space.
@@ -34,7 +34,7 @@ public class IntBoard {
 			}
 			//Checking move to right
 			else if(i + 1 > 0) {
-				adjMtx.get(i).add(i+1);
+				adjMtx.get(i).add(i+1);     // flow pukes here, which is the first true
 			}
 			//Checking move downwards
 			else if(i + COLS < SIZE_OF_BOARD) {
@@ -56,15 +56,31 @@ public class IntBoard {
 	}
 	
 	
+//	public LinkedList<Integer> getAdjList(int index) { // hardcoded for index 0 - this works
+//		System.out.println("sup");
+//		LinkedList<Integer> testList = new LinkedList<Integer>();  //hardcoding a test
+//		testList.add(4);
+//		testList.add(1);
+//		return testList;
+//	}
+	
+
 	public LinkedList<Integer> getAdjList(int index) { 
 		LinkedList<Integer> adjacencyList = new LinkedList<Integer>();
+		adjacencyList = adjMtx.get(index);    // new line
 		return adjacencyList;
 	}
+	
+// 	// original getAdjList
+//	public LinkedList<Integer> getAdjList(int index) { 
+//		LinkedList<Integer> adjacencyList = new LinkedList<Integer>();
+//		return adjacencyList;
+//	}
 	
 	//Calculates the grid index based on the row and column.
 	public static int calcIndex(int row, int column) {
 		int gridIndex = row*4 + column;
-		return gridIndex;//return 5;
+		return gridIndex;
 	}
 	
 	public static void main(String[] args) {
