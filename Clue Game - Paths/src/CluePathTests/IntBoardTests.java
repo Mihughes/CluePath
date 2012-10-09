@@ -95,11 +95,34 @@ public class IntBoardTests {
 		Assert.assertTrue(testList.contains(9));
 		Assert.assertEquals(4, testList.size());
 	}
+	
 	//6 Path Creation Tests*********************************************************
+	
+	@Test
+	public void testTargets0_1() {
+		board.calcTargets(0, 1);
+		board.printTargets(0, 1);
+		TreeSet targets= board.getTargets();
+		Assert.assertEquals(2, targets.size());
+		Assert.assertTrue(targets.contains(1));
+		Assert.assertTrue(targets.contains(4));
+	}
+	
+	@Test
+	public void testTargets0_2() {
+		board.calcTargets(0, 2);
+		board.printTargets(0, 2);
+		TreeSet targets= board.getTargets();
+		Assert.assertEquals(3, targets.size());
+		Assert.assertTrue(targets.contains(2));
+		Assert.assertTrue(targets.contains(5));
+		Assert.assertTrue(targets.contains(8));
+	}
 	
 	@Test
 	public void testTargets0_3() {
 		board.calcTargets(0, 3);
+		board.printTargets(0, 3);
 		TreeSet targets= board.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(1));
@@ -111,25 +134,11 @@ public class IntBoardTests {
 	}
 	
 	@Test
-	public void testTargets2_3() {
-		board.calcTargets(2, 3);
+	public void testTargets0_4() {
+		board.calcTargets(0, 4);
+		board.printTargets(0, 4);
 		TreeSet targets= board.getTargets();
-		Assert.assertEquals(7, targets.size());
-		Assert.assertTrue(targets.contains(1));
-		Assert.assertTrue(targets.contains(3));
-		Assert.assertTrue(targets.contains(4));
-		Assert.assertTrue(targets.contains(6));
-		Assert.assertTrue(targets.contains(9));
-		Assert.assertTrue(targets.contains(11));
-		Assert.assertTrue(targets.contains(15));
-	}
-	
-	@Test
-	public void testTargets15_6() {
-		board.calcTargets(15, 6);
-		TreeSet targets= board.getTargets();
-		Assert.assertEquals(7, targets.size());
-		Assert.assertTrue(targets.contains(0));
+		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(2));
 		Assert.assertTrue(targets.contains(5));
 		Assert.assertTrue(targets.contains(7));
@@ -139,44 +148,35 @@ public class IntBoardTests {
 	}
 	
 	@Test
-	public void testTargets9_2() {
-		board.calcTargets(9, 2);
+	public void testTargets0_5() {
+		board.calcTargets(0, 5);
+		board.printTargets(0, 5);
 		TreeSet targets= board.getTargets();
-		Assert.assertEquals(6, targets.size());
+		Assert.assertEquals(8, targets.size());
 		Assert.assertTrue(targets.contains(1));
+		Assert.assertTrue(targets.contains(3));
 		Assert.assertTrue(targets.contains(4));
 		Assert.assertTrue(targets.contains(6));
+		Assert.assertTrue(targets.contains(9));
 		Assert.assertTrue(targets.contains(11));
 		Assert.assertTrue(targets.contains(12));
 		Assert.assertTrue(targets.contains(14));
 	}
 	
 	@Test
-	public void testTargets13_4() {
-		board.calcTargets(13, 4);
+	public void testTargets0_6() {
+		board.calcTargets(0, 6);
+		board.printTargets(0, 6);
 		TreeSet targets= board.getTargets();
 		Assert.assertEquals(7, targets.size());
-		Assert.assertTrue(targets.contains(0));
 		Assert.assertTrue(targets.contains(2));
 		Assert.assertTrue(targets.contains(5));
 		Assert.assertTrue(targets.contains(7));
 		Assert.assertTrue(targets.contains(8));
 		Assert.assertTrue(targets.contains(10));
-		Assert.assertTrue(targets.contains(15));
-	}
-	
-	@Test
-	public void testTargets6_5() {
-		board.calcTargets(6, 5);
-		TreeSet targets= board.getTargets();
-		Assert.assertEquals(7, targets.size());
-		Assert.assertTrue(targets.contains(0));
-		Assert.assertTrue(targets.contains(2));
-		Assert.assertTrue(targets.contains(5));
-		Assert.assertTrue(targets.contains(8));
-		Assert.assertTrue(targets.contains(10));
 		Assert.assertTrue(targets.contains(13));
 		Assert.assertTrue(targets.contains(15));
+		
 	}
+	
 }
-
